@@ -15,7 +15,6 @@ public class CartController {
 
     @RequestMapping("/cart")
 
-
     @GetMapping("/store/order/add")
     public List<Cart> add(String item, int ID) {
         cartService.addItem(ID, item);
@@ -34,10 +33,10 @@ public class CartController {
         return ((List<Cart>) cartService.showAllItems()).toString();
     }
 
+
     @GetMapping("/store/order/remove")
     public List<Cart> remove (String item, int ID) {
         cartService.removeItem(item, ID);
-
         return null;
     }
 }
