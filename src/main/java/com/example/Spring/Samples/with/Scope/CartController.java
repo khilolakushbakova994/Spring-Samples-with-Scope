@@ -16,14 +16,14 @@ public class CartController {
     @RequestMapping("/cart")
 
     @GetMapping("/store/order/add")
-    public List<Cart> add(String item, int ID) {
-        cartService.addItem(ID, item);
+    public List<Cart> add(int ID) {
+        cartService.addItem(ID);
         return null;
     }
 
     @GetMapping("/store/order/get")
-    public List<Cart> get(String item, int ID) {
-         cartService.getItem(item, ID);
+    public List<Cart> get( int ID) {
+         cartService.getItem(ID);
          return null;
     }
 
@@ -35,8 +35,8 @@ public class CartController {
 
 
     @GetMapping("/store/order/remove")
-    public List<Cart> remove (String item, int ID) {
-        cartService.removeItem(item, ID);
+    public List<Cart> remove ( int ID) {
+        cartService.removeItem(ID);
         return null;
     }
 }

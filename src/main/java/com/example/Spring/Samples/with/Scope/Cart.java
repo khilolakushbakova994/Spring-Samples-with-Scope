@@ -1,38 +1,22 @@
 package com.example.Spring.Samples.with.Scope;
-
 import lombok.Data;
 import org.springframework.web.context.annotation.SessionScope;
 
+import java.util.List;
 import java.util.Objects;
 @Data
 @SessionScope
 
 public class Cart {
 
-    private int ID;
-    private String item;
+    private List<Cart> Id;
 
     public Cart() {
-        this.ID = ID;
-        this.item = item;
+        this.Id = Id;
     }
 
-    public int getID() {
-        return ID;
-    }
-
-
-
-    public void setID(int ID) {
-        this.ID = ID;
-    }
-
-    public String getItem() {
-        return item;
-    }
-
-    public void setItem(String item) {
-        this.item = item;
+    public List<Cart> getID() {
+        return Id;
     }
 
     @Override
@@ -40,19 +24,21 @@ public class Cart {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Cart cart = (Cart) o;
-        return ID == cart.ID && Objects.equals(item, cart.item);
+        return Objects.equals(Id, cart.Id);
     }
+
+
 
     @Override
     public int hashCode() {
-        return Objects.hash(ID, item);
+        return Objects.hash(Id);
     }
 
     @Override
     public String toString() {
         return "Cart{" +
-                "ID=" + ID +
-                ", item='" + item + '\'' +
+                "Id=" + Id +
                 '}';
     }
 }
+

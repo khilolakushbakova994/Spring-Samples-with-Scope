@@ -11,7 +11,7 @@ public class CartServiceImpl implements CartService {
     private static final List<Cart> cartList = new ArrayList<>();
 
     @Override
-    public List<Cart> addItem(int ID, String item) {
+    public List<Cart> addItem(int ID) {
         List<Cart> adduser = cartList;
         cartList.add(new Cart());
 
@@ -19,9 +19,9 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public Cart getItem(String item, int ID) {
+    public Cart getItem( int ID) {
         for(Cart cart: cartList){
-            if (cart.getID()==ID)
+            if (cart.getID().equals(ID))
                 return cart;
         }
         return null;
@@ -33,8 +33,10 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public void removeItem(String item, int ID) {
-        cartList.removeIf(product -> product.getID() == ID);
+    public void removeItem(int ID) {
+        cartList.removeIf(product -> {
+            return Integer.valueOf(product.getID().toString()).equals(ID);
+        });
     }
 
 }

@@ -7,11 +7,11 @@ import java.util.List;
 @Service
 public interface CartService {
 
-    public List<Cart> addItem(int ID, String item);
+    public List<Cart> addItem(int ID);
 
-    public Cart getItem(String item, int ID);
+    public Cart getItem(int ID);
 
     List<Cart> showAllItems();
 
-    void removeItem(String item, int ID);
+    void removeItem(int ID);
 }
