@@ -1,8 +1,12 @@
-package com.example.Spring.Samples.with.Scope;
+package com.example.Spring.Samples.with.Scope.controller;
 
+import com.example.Spring.Samples.with.Scope.service.CartService;
+import com.example.Spring.Samples.with.Scope.model.Cart;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import java.util.List;
 
 @Controller
@@ -16,14 +20,14 @@ public class CartController {
     @RequestMapping("/cart")
 
     @GetMapping("/store/order/add")
-    public List<Cart> add(int ID) {
-        cartService.addItem(ID);
+    public List<Cart> add(@RequestParam ("id") int id) {
+        cartService.addItem(id);
         return null;
     }
 
     @GetMapping("/store/order/get")
-    public List<Cart> get( int ID) {
-         cartService.getItem(ID);
+    public List<Cart> get(@RequestParam ("id") int id) {
+         cartService.getItem(id);
          return null;
     }
 
@@ -35,8 +39,8 @@ public class CartController {
 
 
     @GetMapping("/store/order/remove")
-    public List<Cart> remove ( int ID) {
-        cartService.removeItem(ID);
+    public List<Cart> remove (@RequestParam ("id") int id) {
+        cartService.removeItem(id);
         return null;
     }
 }

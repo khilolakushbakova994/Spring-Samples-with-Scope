@@ -1,4 +1,4 @@
-package com.example.Spring.Samples.with.Scope;
+package com.example.Spring.Samples.with.Scope.model;
 import lombok.Data;
 import org.springframework.web.context.annotation.SessionScope;
 
@@ -9,14 +9,14 @@ import java.util.Objects;
 
 public class Cart {
 
-    private List<Cart> Id;
+    private List<Cart> id;
 
     public Cart() {
-        this.Id = Id;
+        this.id = id;
     }
 
     public List<Cart> getID() {
-        return Id;
+        return id;
     }
 
     @Override
@@ -24,20 +24,20 @@ public class Cart {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Cart cart = (Cart) o;
-        return Objects.equals(Id, cart.Id);
+        return Objects.equals(id, cart.id);
     }
 
 
 
     @Override
     public int hashCode() {
-        return Objects.hash(Id);
+        return Objects.hash(id);
     }
 
     @Override
     public String toString() {
         return "Cart{" +
-                "Id=" + Id +
+                "Id=" + id +
                 '}';
     }
 }
