@@ -1,22 +1,25 @@
 package com.example.Spring.Samples.with.Scope.model;
 import lombok.Data;
+import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-@Data
-@SessionScope
 
+@SessionScope
+@Component
 public class Cart {
 
-    private List<Cart> id;
+    private List<Integer> ids = new ArrayList<>();
 
-    public Cart() {
-        this.id = id;
+
+    public List<Integer> getAll() {
+        return ids;
     }
 
-    public List<Cart> getID() {
-        return id;
+    public void addAll (List<Integer>ids){
+        this.ids.addAll(ids) ;
     }
 
     @Override
@@ -24,20 +27,18 @@ public class Cart {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Cart cart = (Cart) o;
-        return Objects.equals(id, cart.id);
+        return Objects.equals(ids, cart.ids);
     }
-
-
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(ids);
     }
 
     @Override
     public String toString() {
         return "Cart{" +
-                "Id=" + id +
+                "ids=" + ids +
                 '}';
     }
 }

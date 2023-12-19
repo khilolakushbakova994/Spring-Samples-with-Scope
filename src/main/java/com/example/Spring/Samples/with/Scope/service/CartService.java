@@ -5,14 +5,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+
 public interface CartService {
 
-    public void addItem(int id);
+    void addItems(List<Integer> ids);
 
-    public Cart getItem(int id);
+    List <Integer> getAll();
 
-    List<Cart> showAllItems();
-
-    public void removeItem(int id);
 }
